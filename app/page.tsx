@@ -64,7 +64,7 @@ export default function Home() {
             <a href="#architecture" className="hover:text-white transition">Architecture</a>
           </nav>
           <a
-            href="https://github.com"
+            href="https://github.com/anirban1809/flux"
             className="font-mono text-xs px-3 py-1.5 rounded-md border border-white/10 hover:border-white/30 hover:bg-white/5 transition"
           >
             GitHub →
