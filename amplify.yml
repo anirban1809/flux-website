@@ -8,12 +8,14 @@ frontend:
       commands:
         - npm run build
   artifacts:
-    # next.config.ts sets `output: "export"`, so the build writes a
-    # fully static site to ./out — point Amplify at that directory.
-    baseDirectory: out
+    # SSR build on Amplify's Web Compute platform — Next.js writes its
+    # server bundle, static assets, and required-server-files.json into
+    # ./.next, which is what Amplify's Compute runtime serves from.
+    baseDirectory: .next
     files:
       - '**/*'
   cache:
     paths:
       - .npm/**/*
       - node_modules/**/*
+      - .next/cache/**/*
