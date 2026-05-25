@@ -21,6 +21,25 @@ body {
   font-family: var(--font-fira-code), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
+/* Section-level scroll snap.
+ * `proximity` (not `mandatory`) — long sections like the hero and features
+ * can be scrolled through freely; the snap only kicks in when the user
+ * lets go near a boundary.
+ * `scroll-padding-top` offsets for the 56px sticky nav so section headings
+ * don't end up hidden underneath it. */
+html {
+  scroll-snap-type: y proximity;
+  scroll-padding-top: 56px;
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-snap-type: none;
+    scroll-behavior: auto;
+  }
+}
+
 /* subtle grid background */
 .bg-grid {
   background-image:
@@ -61,4 +80,13 @@ body {
 @keyframes slideIn {
   from { opacity: 0; transform: translateX(-6px); }
   to { opacity: 1; transform: translateX(0); }
+}
+
+/* hide scrollbars while preserving scroll behavior */
+.no-scrollbar {
+  scrollbar-width: none;        /* Firefox */
+  -ms-overflow-style: none;     /* old IE / Edge */
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;                /* Chromium / Safari */
 }
